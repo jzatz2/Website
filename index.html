@@ -20,7 +20,7 @@
 <body>
     <!-- Desktop navigation -->
     <nav id="desktop-nav">
-        <div class="logo">J.Z</div>
+        <div class="logo" onclick="location.href='#profile'">J.Z</div>
         <div>
             <ul class="nav-links">
                 <li><a href="#about">About Me</a></li>
@@ -33,7 +33,7 @@
 
     <!-- Mobile navigation -->
     <nav id="hamburger-nav">
-        <div class="logo">J.Z</div>
+        <div class="logo" onclick="location.href='#profile'">J.Z</div>
         <div class="hamburger-menu">
             <div class="hamburger-icon" onclick="toggleMenu()">
                 <span></span>
@@ -49,22 +49,18 @@
         </div>
     </nav>
 
-    <!-- Hero/Profile section - FIXED LAYOUT -->
+    <!-- Hero/Profile section -->
     <section id="profile">
         <div class="profile-left-side">
             <div class="section__pic-container">
                 <img src="./assets/profile-pic.png" alt="Joshua Zatz profile pic" />
             </div>
+        </div>
+        <div class="profile-center">
             <div class="section__text">
                 <p class="section__text__p1">Hello I'm</p>
                 <h1 class="title">Joshua Zatz</h1>
                 <p class="section__text__p2">Mechanical Engineer</p>
-                <div class="btn-container">
-                    <button class="btn btn-color-2"
-                            onclick="window.open('./assets/resume-example.pdf')">Download CV</button>
-                    <button class="btn btn-color-1"
-                            onclick="location.href='./#contact'">Contact Me</button>
-                </div>
                 <div id="socials-container">
                     <img src="./assets/linkedin.png" alt="LinkedIn profile" class="icon"
                          onclick="location.href='https://www.linkedin.com/in/joshzatz2'" />
@@ -99,7 +95,7 @@
                     <div class="details-container">
                         <img src="./assets/education.png" alt="Education Icon" class="icon" />
                         <h3>Education</h3>
-                        <p>B.S Mechanical Engineering<br/>M.S Mechanical Engineering | Robotics</p>
+                        <p>B.S Mechanical Engineering @ UIC<br/>M.S Mechanical Engineering | Robotics @ UIC</p>
                     </div>
                 </div>
                 <div class="text-container">
@@ -151,9 +147,9 @@
                         <span class="resume-arrow">&#9662;</span>
                     </div>
                     <div class="resume-content">
-                        <embed src="./assets/resume-example.pdf" type="application/pdf" class="resume-pdf" />
+                        <embed src="./assets/Resume_Zatz_PC.pdf" type="application/pdf" class="resume-pdf" />
                         <p class="resume-download">
-                            <a href="./assets/resume-example.pdf" download target="_blank">Download Resume</a>
+                            <a href="./assets/Resume_Zatz_PC.pdf" download target="_blank">Download Resume</a>
                         </p>
                     </div>
                 </div>
@@ -206,7 +202,7 @@
                                 </div>
                                 <!-- Photo 3 -->
                                 <div class="gallery-slide">
-                                    <img src="./assets/Project1_MJView.jpg" alt="MuJoCo simulation view" />
+                                    <img src="./assets/Project1_MJView.png" alt="MuJoCo simulation view" />
                                 </div>
                                 <!-- Video 1 - Remove active class -->
                                 <div class="gallery-slide">
@@ -260,13 +256,23 @@
                         <!-- Right: Description and Skills -->
                         <div class="project-details">
                             <div class="project-description">
+                                <div class="project-goal">
+                                    <strong>Goal:</strong> Develop an autonomous robotic system capable of detecting and 
+                                    removing bolts from a flange in a radioactive environment. 
+                                    The environment itself is stochastic (lighting, reflections, grime, etc.). The system must be reliable and account for these uncertain conditions.
+                                </div>
                                 <ul>
+                                    <li>Developed for FermiLab's NuMI project to perform remedial tasks in radioactive environments</li>
                                     <li>Integrated UFactory xArm 6 with Intel RealSense Depth Camera for autonomous bolt detection and removal</li>
                                     <li>Implemented TensorFlow & YOLOv5 object detection to identify bolts on flanges with identical material and color</li>
                                     <li>Overcame challenges of traditional precision techniques through advanced computer vision algorithms</li>
-                                    <li>Developed for FermiLab's NuMI project to perform remedial tasks in radioactive environments</li>
-                                    <li>Created robust solution for safe, remote operation in hazardous conditions</li>
+                                    <li>Map pointcloud results from LiDAR to the expected flange output from YOLOv5, mapping the appropriate colors (grey-scaled) and bolt locations</li>
+                                    <li>Use trajectory generation on the array of detect bolts using Inverse Kinematics.</li>
+                                    <li>Created a robust software for safe, remote operation in hazardous conditions with optional human interference.</li>
                                 </ul>
+                            </div>
+                            <div class="project-acknowledgements">
+                                <strong>Acknowledgements:</strong> Completed as part of Senior Design project for FermiLab.
                             </div>
                             <div class="project-skills">
                                 <span class="skill-tag">Python</span>
@@ -350,6 +356,9 @@
                         <!-- Right: Description and Skills -->
                         <div class="project-details">
                             <div class="project-description">
+                                <div class="project-goal">
+                                    <strong>Goal:</strong> Design and validate a novel RFID-based medical sensor that activates upon contact with electrolytes, enabling real-time monitoring medicines that can only be outside of a specified temperature range for a specific amount of time.
+                                </div>
                                 <ul>
                                     <li>Performed comprehensive experimental validation across multiple temperature conditions</li>
                                     <li>Developed detailed multiphase simulation models considering porous microstructure effects</li>
@@ -357,6 +366,9 @@
                                     <li>Created prototype demonstrating real-time monitoring capabilities in controlled environments</li>
                                     <li>Optimized sensor response for medical-grade precision and reliability</li>
                                 </ul>
+                            </div>
+                            <div class="project-acknowledgements">
+                                <strong>Acknowledgements:</strong> Completed as part of contract work for Abbott.
                             </div>
                             <div class="project-skills">
                                 <span class="skill-tag">Multiphase Flow</span>
@@ -439,6 +451,9 @@
                         <!-- Right: Description and Skills -->
                         <div class="project-details">
                             <div class="project-description">
+                                <div class="project-goal">
+                                    <strong>Goal:</strong> Create an assistive exoskeleton with impedance control that adapts to user intent, providing natural movement assistance while maintaining safety and comfort for individuals with mobility impairments using Bayesian Optimization.
+                                </div>
                                 <ul>
                                     <li>Designed assistive exoskeleton with advanced impedance control for natural movement</li>
                                     <li>Implemented biomechanical modeling to optimize human-robot interaction</li>
@@ -446,6 +461,9 @@
                                     <li>Created mechanical design balancing strength, weight, and mobility</li>
                                     <li>Integrated sensor feedback for real-time force and position control</li>
                                 </ul>
+                            </div>
+                            <div class="project-acknowledgements">
+                                <strong>Acknowledgements:</strong> Completed as part of undergraduate research. Special thanks to Salvador Echeveste for including me in this project.
                             </div>
                             <div class="project-skills">
                                 <span class="skill-tag">SolidWorks</span>
@@ -522,6 +540,9 @@
                         <!-- Right: Description and Skills -->
                         <div class="project-details">
                             <div class="project-description">
+                                <div class="project-goal">
+                                    <strong>Goal:</strong> The task was to design a novel fidget toy that can be easily replicated.
+                                </div>
                                 <ul>
                                     <li>Wrote a matlab script that models a singular Cam.</li>
                                     <li>Generates the cam outline in xyz coordinates based on Dwell, Rise, and return parameters.</li>
@@ -529,6 +550,9 @@
                                     <li>Performs stress simulation and optimization on crankshaft components.</li>
                                     <li>3D Printed the crankshaft, pistons, and housing.</li>
                                 </ul>
+                            </div>
+                            <div class="project-acknowledgements">
+                                <strong>Acknowledgements:</strong> Completed as part of ME347 CAD class.
                             </div>
                             <div class="project-skills">
                                 <span class="skill-tag">Matlab</span>
@@ -603,6 +627,9 @@
                         <!-- Right: Description and Skills -->
                         <div class="project-details">
                             <div class="project-description">
+                                <div class="project-goal">
+                                    <strong>Goal:</strong> Build an autonomous stair-climbing robot that detects stairs and must climb at least three stairs to qualify.
+                                </div>
                                 <ul>
                                     <li>Designed a rack and pinion system fixed at the robot's base. Enables vertical movement of the robot's base.</li>
                                     <li>Used button 'antennas' to detect stairs</li>
@@ -611,6 +638,9 @@
                                     <li>One of three designs in a class of 250 to actually work and meet the requirements.</li>
 
                                 </ul>
+                            </div>
+                            <div class="project-acknowledgements">
+                                <strong>Acknowledgements:</strong> Completed as part of ME250 class.
                             </div>
                             <div class="project-skills">
                                 <span class="skill-tag">Arduino</span>
@@ -638,17 +668,32 @@
     <section id="contact">
         <p class="section__text__p1">Get in Touch</p>
         <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img src="./assets/email.png" alt="Email icon"
-                     class="icon contact-icon email-icon" />
+        <div class="contact-content">
+            <div class="contact-email-display">
+                <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
                 <p><a href="mailto:joshzatz@outlook.com">Joshzatz@outlook.com</a></p>
             </div>
-            <div class="contact-info-container">
-                <img src="./assets/linkedin.png" alt="LinkedIn Icon"
-                     class="icon contact-icon email-icon" />
-                <p><a href="https://www.linkedin.com/in/joshzatz2">LinkedIn</a></p>
-            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message <span class="required">*</span></label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-color-1">Send Message</button>
+            </form>
         </div>
     </section>
 

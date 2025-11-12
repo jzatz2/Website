@@ -453,4 +453,32 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.toggle('open');
         });
     });
+
+    // Contact form submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link with form data
+            const subject = encodeURIComponent(`Contact from ${firstName} ${lastName}`);
+            const body = encodeURIComponent(
+                `Name: ${firstName} ${lastName}\n` +
+                `Email: ${email}\n\n` +
+                `Message:\n${message}`
+            );
+            
+            // Open email client
+            window.location.href = `mailto:joshzatz@outlook.com?subject=${subject}&body=${body}`;
+            
+            // Optional: Show success message or reset form
+            alert('Opening your email client...');
+            contactForm.reset();
+        });
+    }
 });

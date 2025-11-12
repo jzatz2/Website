@@ -32,6 +32,25 @@
         width: 100%;
     }
 
+    .profile-center {
+        width: 100%;
+        align-items: center;
+    }
+
+    .section__text {
+        text-align: left;
+        align-self: center;
+    }
+
+    .section__text__p1,
+    .title {
+        text-align: left;
+    }
+
+    #socials-container {
+        justify-content: flex-start;
+    }
+
     .section-container { 
         display: block; 
     }
@@ -72,16 +91,21 @@
         margin-bottom: 1.5rem; 
     }
 
-    .about-containers, .contact-info-upper-container, .btn-container {
+    .about-containers, .btn-container {
         flex-wrap: wrap;
     }
 
-    .contact-info-container { 
-        margin: 0; 
+    .contact-content {
+        padding: 0 1rem;
     }
 
-    .contact-info-container p, .nav-links li a { 
-        font-size: 1rem; 
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
     }
 
     .experience-sub-title { 
