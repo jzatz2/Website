@@ -1,0 +1,391 @@
+@media screen and (max-width: 1400px) {
+    #profile { height: auto; margin-bottom: 4rem; }
+    .about-containers { flex-wrap: wrap; }
+}
+
+@media screen and (max-width: 1200px) {
+    #desktop-nav { 
+        display: none; 
+    }
+
+    #hamburger-nav { 
+        display: flex; 
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #experience, .experience-details-container {
+         margin-top: 2rem;
+    }
+
+    #profile {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .profile-right-side {
+        display: none !important;
+    }
+    
+    .profile-left-side {
+        flex: 1;
+        width: 100%;
+    }
+
+    .section-container { 
+        display: block; 
+    }
+
+    section, .section-container { 
+        height: auto; 
+    }
+    section {
+         margin: 0 5%; 
+         padding-left: 5%; 
+         padding-right: 5%; 
+    }
+
+    .section__pic-container {
+        width: 275px;
+        height: 275px;
+        margin: 0 auto;
+    }
+    .about-containers { margin-top: 0; }
+}
+
+@media screen and (max-width: 600px) {
+    #contact, footer { 
+        height: auto; 
+    }
+
+    #profile { 
+        height: auto; 
+        margin-bottom: 0; 
+    }
+
+    article { 
+        font-size: 1rem; 
+    }
+
+    footer nav { 
+        height: auto; 
+        margin-bottom: 1.5rem; 
+    }
+
+    .about-containers, .contact-info-upper-container, .btn-container {
+        flex-wrap: wrap;
+    }
+
+    .contact-info-container { 
+        margin: 0; 
+    }
+
+    .contact-info-container p, .nav-links li a { 
+        font-size: 1rem; 
+    }
+
+    .experience-sub-title { 
+        font-size: 1.25rem; 
+    }
+
+    .logo { 
+        font-size: 1.5rem; 
+    }
+
+    .nav-links { 
+        flex-direction: column;
+        gap: 0.5rem; 
+        text-align: center; 
+    }
+
+    .section__pic-container { 
+        width: auto; 
+        height: 58vw; 
+        justify-content: center; 
+    }
+    .section__text__p2 { 
+        font-size: 1.25rem; 
+    }
+
+    .title { 
+        font-size: 2rem; 
+    }
+
+    .text-container {
+         text-align: justify; 
+    }
+
+    #profile .section__pic-container {
+        width: 60vw !important;
+        height: 60vw !important;
+        margin: 0 auto 2rem;
+    }
+
+    .about-image-wrapper {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 0 1.5rem 0;
+    }
+    .about-image-wrapper img {
+        width: 100% !important;
+        height: auto !important;
+        transform: none !important;
+    }
+
+    .project-split-layout { grid-template-columns: 1fr !important; gap: 1.5rem; }
+
+    .project-gallery {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: auto !important;
+    overflow: visible !important;
+    position: relative; /* Make this the positioning context for controls */
+    }
+
+    /* Video controls at bottom of video area */
+    .gallery-container {
+        order: 0;
+        flex-shrink: 0;
+        aspect-ratio: 4 / 3;     /* phones: a bit taller */
+        height: auto !important; /* override desktop 100% */
+        border-radius: 1rem;
+        overflow: hidden; /* Keep content inside */
+        position: relative; /* Ensure controls position relative to this */
+    }
+    
+    /* Video controls positioned above the caption, below video */
+    .project-gallery.has-video .video-controls {
+        display: flex !important;
+        opacity: 1 !important;
+        padding: 0.2rem 0.4rem !important;
+        gap: 0.25rem !important;
+        z-index: 30 !important;
+        position: relative !important; /* Relative position in flow */
+        margin-top: -2.5rem !important; /* Pull up to overlap bottom of video */
+        margin-bottom: 0.5rem !important; /* Space before caption */
+        pointer-events: auto !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        border-radius: 0.5rem !important;
+    }
+
+    .gallery-caption {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    order: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    background: var(--card-bg) !important;      
+    color: var(--primary-color) !important;
+    border: 1px solid #e5e5ea !important;
+    border-radius: 0.75rem !important;
+    padding: 0.75rem 1rem !important;
+    margin-top: 1rem !important;
+    text-align: left !important;
+    line-height: 1.45 !important;
+    }
+
+
+    
+    /* Even smaller arrows on phones */
+    .gallery-arrow {
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: 1rem;
+        z-index: 15; /* Ensure arrows are above video but below controls */
+    }
+    
+    /* Position arrows on the actual media container */
+    .gallery-container {
+        position: relative;
+    }
+    
+    /* Position arrows at the visual center of the media */
+    .gallery-prev,
+    .gallery-next {
+        position: absolute;
+        /* Position from top based on aspect ratio */
+        top: min(50%, 25vw); /* 25vw is half of 50vw height for 4:3 aspect */
+        transform: translateY(-50%);
+    }
+    
+    .gallery-prev {
+        left: 0.5rem;
+    }
+    
+    .gallery-next {
+        right: 0.5rem;
+    }
+    
+    .project-description li {
+        font-size: 0.9rem;
+    }
+    
+    .skill-tag {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.75rem;
+    }
+    
+    .play-pause-btn,
+    .mute-btn,
+    .fullscreen-btn {
+        width: 1.3rem !important;
+        height: 1.3rem !important;
+        font-size: 0.65rem !important;
+    }
+    
+    .time-display {
+        font-size: 0.55rem !important;
+    }
+    
+    .progress-bar {
+        height: 2.5px !important;
+    }
+    
+    .play-pause-btn,
+    .mute-btn,
+    .fullscreen-btn {
+        width: 1.3rem !important;
+        height: 1.3rem !important;
+        font-size: 0.65rem !important;
+    }
+    
+    .time-display {
+        font-size: 0.55rem !important;
+    }
+    
+    .progress-bar {
+        height: 2.5px !important;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .project-split-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+
+    .project-gallery {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: auto !important;
+    overflow: visible !important;
+    max-width: none;
+    position: relative; /* Make this the positioning context for controls */
+    }
+    .gallery-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;    
+    height: auto !important; /* override desktop 100% */
+    order: 0;
+    border-radius: 1rem;
+    overflow: hidden;         
+    }
+
+    .gallery-caption {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    order: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    background: var(--card-bg) !important;       
+    color: var(--primary-color) !important;
+    border: 1px solid #e5e5ea !important;
+    border-radius: 0.75rem !important;
+    padding: 0.75rem 1rem !important;
+    margin-top: 0.6rem !important;
+    text-align: left !important;
+    line-height: 1.45 !important;
+    }
+
+
+    /* Smaller arrows on mobile */
+    .gallery-arrow {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+        z-index: 15; /* Ensure arrows are above video but below controls */
+    }
+    
+    /* Position arrows on the media container */
+    .gallery-container {
+        position: relative;
+    }
+    
+    .gallery-prev,
+    .gallery-next {
+        position: absolute;
+        /* Position based on 16:9 aspect ratio */
+        top: min(50%, 28vw); /* Approximate center for 16:9 */
+        transform: translateY(-50%);
+    }
+    
+    .gallery-prev {
+        left: 0.75rem;
+    }
+    
+    .gallery-next {
+        right: 0.75rem;
+    }
+    
+    /* Video controls positioned above caption on tablets */
+    .project-gallery.has-video .video-controls {
+        display: flex !important;
+        opacity: 1 !important;
+        position: relative !important; /* In document flow */
+        margin-top: -2.5rem !important; /* Pull up to overlap bottom of video */
+        margin-bottom: 0.5rem !important; /* Space before caption */
+        z-index: 30 !important;
+        padding: 0.3rem 0.5rem !important;
+        gap: 0.3rem !important;
+        pointer-events: auto !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        border-radius: 0.5rem !important;
+    }
+    
+    .play-pause-btn,
+    .mute-btn,
+    .fullscreen-btn {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .time-display {
+        font-size: 0.65rem;
+    }
+    
+    .progress-bar {
+        height: 3px;
+    }
+    
+    .play-pause-btn,
+    .mute-btn,
+    .fullscreen-btn {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .time-display {
+        font-size: 0.65rem;
+    }
+    
+    .progress-bar {
+        height: 3px;
+    }
+
+}
+    
+
+@media screen and (max-width: 400px) {
+    .time-display {
+        display: none;
+    }
+}
