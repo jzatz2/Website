@@ -1072,14 +1072,16 @@ footer p { font-size: 0.9rem; color: var(--secondary-color); }
     gap: 2rem;
     padding: 4rem 2rem;
     min-height: 600px;
+    max-width: 100%;
     background-color: var(--card-bg);
     border-radius: 1rem;
     box-shadow: 0 4px 16px var(--card-shadow);
+    overflow: hidden;
 }
 
 /* LEFT SIDE: Picture + Text stacked vertically */
 .profile-left-side {
-    flex: 0 0 45%;
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1112,11 +1114,13 @@ footer p { font-size: 0.9rem; color: var(--secondary-color); }
 
 /* RIGHT SIDE: Robot arm */
 .profile-right-side {
-    flex: 0 0 50%;
+    flex: 1 1 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 600px;
+    min-width: 0;
+    overflow: hidden;
 }
 
 #robot-container {
@@ -1124,6 +1128,7 @@ footer p { font-size: 0.9rem; color: var(--secondary-color); }
     width: 100%;
     height: 100%;
     min-height: 600px;
+    max-width: 100%;
     border-radius: 1rem;
     overflow: hidden;
     background: #f8f8f8;

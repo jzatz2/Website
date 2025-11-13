@@ -1,5 +1,33 @@
 @media screen and (max-width: 1400px) {
-    #profile { height: auto; margin-bottom: 4rem; }
+    #profile { 
+        height: auto; 
+        margin-bottom: 4rem;
+        padding: 3rem 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .profile-left-side {
+        flex: 0 0 auto;
+    }
+    
+    .profile-center {
+        flex: 0 0 auto;
+    }
+    
+    .profile-right-side {
+        flex: 1 1 auto;
+        min-width: 0;
+        min-height: 500px;
+    }
+    
+    #robot-container {
+        min-height: 500px;
+    }
+    
+    #canvas {
+        min-height: 500px;
+    }
+    
     .about-containers { flex-wrap: wrap; }
 }
 
