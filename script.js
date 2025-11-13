@@ -49,9 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
             'Surface tension analysis for electrolyte optimization.'
         ],
         2: [
-            'Exoskeleton design with impedance control',
-            'Biomechanical joint configuration',
-            'Control system integration'
+            'Sample data extraction of a single alloy from the Materials Project Database.',
+            'Bulk Modulus distribution amongst samples',
+            'Shear Modulus distribution amongst samples',
+            'Predictions of the shear and bulk modulus of different samples.',
+            'Predictions of Shear and Bulk modulus for a specific alloy (TiNi). Provides Hardness calculation in a single GUI'
+
         ],
         3: [
             'Half-Section view of final engine fidget toy.',
@@ -65,13 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'SolidWorks view of the Crankshaft',
             'Final Assembly of Fidget Toy.',
             'Fidget toy in action.'
-        ],
-        5: [
-            'Rack and Pinion Assembly',
-            'Final Assembly of Autonomous System',
-            'Robot in action'
         ]
-
     };
     
     galleries.forEach((gallery, galleryIndex) => {
