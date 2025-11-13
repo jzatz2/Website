@@ -54,9 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
             'Control system integration'
         ],
         3: [
-            'Exoskeleton design with impedance control',
-            'Biomechanical joint configuration',
-            'Control system integration'
+            'Half-Section view of final engine fidget toy.',
+            'Cam profile created on matlab, ensuring desired time for rise and fall.',
+            'Crankshaft assembly from matlab cam profile ensuring 180degrees offset of cams. Pistons move opposite of one another.',
+            'Complete assembly drawing + assembly directions of fidget toy on SolidWorks.'
+
         ],
         4: [
             'Matlab Output of Dwell, Rest and Return configuration of CAM',
