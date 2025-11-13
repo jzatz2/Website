@@ -384,7 +384,7 @@
             <!-- Project Three -->
             <div class="project-item">
                 <div class="project-header">
-                    <h2 class="project-title">Impedance Controlled Assistive Exoskeleton Design</h2>
+                    <h2 class="project-title">Supervised Learning on Alloy Hardness</h2>
                     <span class="project-arrow">&#9662;</span>
                 </div>
                 <div class="project-content">
@@ -392,25 +392,25 @@
                         <!-- Left: Image Gallery -->
                         <div class="project-gallery">
                             <div class="gallery-container">
-                                <!-- Video 1 -->
+                                <!-- Photo 1 -->
                                 <div class="gallery-slide active">
-                                    <video muted playsinline class="project-video" preload="auto">
-                                        <source src="./assets/Project2Real.mp4" type="video/mp4">
-                                    </video>
+                                    <img src="./assets/Project3_SampleDataExtract.jpg" alt="Data extraction" />
                                 </div>
-                                
-                                <!-- Video 2 -->
-                                <div class="gallery-slide">
-                                    <video muted playsinline class="project-video" preload="auto">
-                                        <source src="./assets/Project2Detailed.mp4" type="video/mp4">
-                                    </video>
+                                <!-- Photo 2 -->
+                                <div class="gallery-slide active">
+                                    <img src="./assets/Project3_BulkDistribution.jpg" alt="Bulk distribution" />
                                 </div>
-                                
-                                <!-- Video 3 -->
-                                <div class="gallery-slide">
-                                    <video muted playsinline class="project-video" preload="auto">
-                                        <source src="./assets/Project2_STTest.mp4" type="video/mp4">
-                                    </video>
+                                <!-- Photo 3 -->
+                                <div class="gallery-slide active">
+                                    <img src="./assets/Project3_ShearDistribution.jpg" alt="Shear distribution" />
+                                </div>
+                                <!-- Photo 4 -->
+                                <div class="gallery-slide active">
+                                    <img src="./assets/Project3_Prediction.jpg" alt="Prediction" />
+                                </div>
+                                <!-- Photo 5 -->
+                                <div class="gallery-slide active">
+                                    <img src="./assets/Project3_TiNiPredictor.jpg" alt="TiNi Predictor" />
                                 </div>
                             </div>
                             
@@ -445,33 +445,35 @@
                             
                             <button class="gallery-arrow gallery-prev" aria-label="Previous">‹</button>
                             <button class="gallery-arrow gallery-next" aria-label="Next">›</button>
-                            <div class="gallery-caption">Exoskeleton design with impedance control</div>
+                            <div class="gallery-caption">Supervised Learning on Alloy Hardness</div>
                         </div>
                         
                         <!-- Right: Description and Skills -->
                         <div class="project-details">
                             <div class="project-description">
                                 <div class="project-goal">
-                                    <strong>Goal:</strong> Create an assistive exoskeleton with impedance control that adapts to user intent, providing natural movement assistance while maintaining safety and comfort for individuals with mobility impairments using Bayesian Optimization.
+                                    <strong>Goal:</strong> Create a supervised learning model to predict alloy hardness based on chemical properties.
                                 </div>
                                 <ul>
-                                    <li>Designed assistive exoskeleton with advanced impedance control for natural movement</li>
-                                    <li>Implemented biomechanical modeling to optimize human-robot interaction</li>
-                                    <li>Developed control algorithms for adaptive assistance based on user intent</li>
-                                    <li>Created mechanical design balancing strength, weight, and mobility</li>
-                                    <li>Integrated sensor feedback for real-time force and position control</li>
+                                    <li>Hardness is an empirical emergent property, the best we can do is find correlations to hardness. Density Functional Theory only outputs elastic constants.</li>
+                                    <li>Important features that show correlation to hardness includes lattice structure and chemical properties (e.g. Bond length is directly proportional to stiffness).</li>
+                                    <li>Utilized the Materials Project database for input data (100k+ entries) of different alloys.</li>
+                                    <li>Used Voigt-Reuss-Hill stress to get the mean stress. Ideal for anistropic materials.</li>
+                                    <li>The correlation and mapping of the composition to moduli/hardness is nonlinear, discontinuous and influenced by environment. For this reason, supervised learning was used (Random Forest Regressor).</li>
+                                    <li>Random Forest Regressor places importance on certain features, resistant to overfitting, and handles the noisy data well. </li> 
+                                    <li>End results were promising with high coefficient of determination (R²) without over/underfitting.</li>
+                                    <li>Using the promsing Shear and Bulk Modulus, hardness is calculated via the Chen-Ming Model. Provided as accurate as possible values to hardness of different anistropic alloys.</li>
+
                                 </ul>
                             </div>
                             <div class="project-acknowledgements">
-                                <strong>Acknowledgements:</strong> Completed as part of undergraduate research. Special thanks to Salvador Echeveste for including me in this project.
+                                <strong>Acknowledgements:</strong> Completed as part of ME494: Machine Learning in Data Science.
                             </div>
                             <div class="project-skills">
-                                <span class="skill-tag">SolidWorks</span>
-                                <span class="skill-tag">Control Systems</span>
-                                <span class="skill-tag">Biomechanics</span>
-                                <span class="skill-tag">Matlab</span>
-                                <span class="skill-tag">Mechanical Design</span>
-                                <span class="skill-tag">Simulation</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">SciPY/Pandas</span>
+                                <span class="skill-tag">Supervised Learning</span>
+                                <span class="skill-tag">Machine Learning</span>
                             </div>
                         </div>
                     </div>
