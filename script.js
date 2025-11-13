@@ -64,10 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         ],
         4: [
-            'Matlab Output of Dwell, Rest and Return configuration of CAM',
-            'SolidWorks view of the Crankshaft',
-            'Final Assembly of Fidget Toy.',
-            'Fidget toy in action.'
+            'Simplified assembly of the robot. ',
+            'SolidWorks drawing of the robot.',
+            'Final product of the robot. Opted for ultrasonic sensors for detection. Applied super glue for extra friction on the wheels.'
         ]
     };
     
