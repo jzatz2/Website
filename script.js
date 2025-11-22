@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'Real life demo presented at Senior Design Expo. Missed a bolt due to shaking of the flimsy table.',
         ],
         1: [
+            'Velocity characterization for a single sample. Drag calculations are confirmed with this experiement.',
             'Experimental testing at 10°F across multiple samples.',
-            'Detailed multiphase CFD simulation with porous effects. Fraction concentration is modeled as a function of time and temperature by Darcys Law',
-            'Velocity characterization for a single sample. Drag calculations are confirmed with this experiement.'
+            'Detailed multiphase CFD simulation with porous effects. Fraction concentration is modeled as a function of time and temperature by Darcys Law'
         ],
         2: [
             'Sample data extraction of a single alloy from the Materials Project Database.',
