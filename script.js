@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
         1: [
             'Experimental testing at 10°F across multiple samples.',
-            'Detailed multiphase CFD simulation with porous effects.',
+            'Detailed multiphase CFD simulation with porous effects. Fraction concentration is modeled as a function of time and temperature by Darcys Law',
             'Velocity characterization for a single sample. Drag calculations are confirmed with this experiement.'
         ],
         2: [
