@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         1: [
             'Experimental testing at 10°F across multiple samples.',
             'Detailed multiphase CFD simulation with porous effects.',
-            'Surface tension analysis for electrolyte optimization.'
+            'Velocity characterization for a single sample. Drag calculations are confirmed with this experiement.'
         ],
         2: [
             'Sample data extraction of a single alloy from the Materials Project Database.',
