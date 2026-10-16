@@ -1,0 +1,3 @@
+# Local visual QA captures; the website and generated HTML preview are tracked.
+/preview/*.jpg
+/preview/*.png
