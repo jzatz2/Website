@@ -9,35 +9,14 @@ function toggleMenu() {
  * Expandable project tabs, résumé dropdown, and video gallery with custom controls
  */
 document.addEventListener('DOMContentLoaded', () => {
-    // Toggle project tabs
-    const projectHeaders = document.querySelectorAll('.project-header');
-    projectHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const item = header.parentElement;
-            const currentlyOpen = item.classList.contains('open');
-            document.querySelectorAll('.project-item.open').forEach(openItem => {
-                if (openItem !== item) openItem.classList.remove('open');
-            });
-            document.querySelectorAll('.project-item').forEach(itm => itm.classList.remove('hidden-project'));
-            if (currentlyOpen) {
-                item.classList.remove('open');
-            } else {
-                item.classList.add('open');
-                const allItems = Array.from(document.querySelectorAll('.project-item'));
-                const index = allItems.indexOf(item);
-                allItems.forEach((itm, idx) => {
-                    if (idx > index) itm.classList.add('hidden-project');
-                });
-            }
-        });
-    });
+    // Project card behavior is handled in projects.js.
 
     // Initialize galleries
     const galleries = document.querySelectorAll('.project-gallery');
     
     const projectCaptions = {
         0: [
-            'FermiLabs NUMI Project. Worlds most powerful neutrino beam (700kW!). Our project focuses on the Target Hall specifically, where most of the radiation is produced.',
+            'Fermilab NuMI beamline. Our project focuses on remote maintenance in the Target Hall.',
             'The real flange + Beryillium disc used in the process. Not used for demo/simulations.',
             'Simulation setup. This is what the UFactory xArm6 sees with a simplified flange in MujoCo Physics Simulator.',
             'Completed simulation demo done on MujoCo.',
@@ -119,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentVideo = video;
             
             // Update progress bar
-            const percent = (video.currentTime / video.duration) * 100;
+            const percent = Number.isFinite(video.duration) && video.duration > 0 ? (video.currentTime / video.duration) * 100 : 0;
             progressFilled.style.width = percent + '%';
             
             // Update time display
@@ -136,98 +115,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
+        // Register media events once, so revisiting a slide never duplicates them.
+        slides.forEach(slide => {
+            const video = slide.querySelector('video');
+            if (!video) return;
+            video.loop = true;
+            ['timeupdate', 'loadedmetadata', 'play', 'pause'].forEach(name => {
+                video.addEventListener(name, () => {
+                    if (video === currentVideo) updateVideoControls(video);
+                });
+            });
+        });
+
         function showSlide(index) {
             slides.forEach((slide, i) => {
-                const activeSlide = slides[index];
-                const hasVideo = !!activeSlide.querySelector('video');
-                gallery.classList.toggle('has-video', hasVideo);
-
                 const isActive = i === index;
                 slide.classList.toggle('active', isActive);
-                
+                slide.hidden = !isActive;
                 const video = slide.querySelector('video');
-                const galleryContainer = slide.closest('.gallery-container');
-                
                 if (video) {
-                    if (isActive) {
-                        // Make sure video is visible first
-                        slide.style.display = 'flex';
-                        
-                        // Show controls immediately for mobile
-                        if (galleryContainer && window.innerWidth <= 1000) {
-                            showControlsTemporarily(galleryContainer);
-                        }
-                        
-                        // Wait a tiny bit for the slide to be visible
-                        setTimeout(() => {
-                            video.currentTime = 0;
-                            
-                            // Try to play with better error handling
-                            const playPromise = video.play();
-                            if (playPromise !== undefined) {
-                                playPromise.then(() => {
-                                    slide.classList.remove('needs-interaction');
-                                    // Show controls initially when video starts playing
-                                    showControlsTemporarily(galleryContainer);
-                                }).catch(e => {
-                                    // Show play button overlay
-                                    slide.classList.add('needs-interaction');
-                                    gallery.addEventListener('click', () => {
-                                        video.play().then(() => {
-                                            slide.classList.remove('needs-interaction');
-                                        });
-                                    }, { once: true });
-                                });
-                            }
-                        }, 50);
-                        
-                        if (videoControls) {
-                            videoControls.style.display = 'flex';
-                        }
-                        
-                        if (videoControls) {
-                            videoControls.style.display = 'flex';
-                        }
-                        
-                        video.addEventListener('timeupdate', () => updateVideoControls(video));
-                        video.addEventListener('loadedmetadata', () => {
-                            updateVideoControls(video);
-                            console.log(`Video ${index + 1} loaded:`, video.videoWidth, 'x', video.videoHeight);
-                        });
-
-                        // Inside the showSlide function, after the video event listeners:
-                        video.addEventListener('ended', () => {
-                            if (currentVideo === video) {
-                                video.currentTime = 0;
-                                video.play().catch(e => console.log('Loop play prevented'));
-                            }
-                        });
-                        
-                        currentVideo = video;
-                        updateVideoControls(video);
-                    } else {
-                        video.pause();
-                        video.currentTime = 0;
-                        
-                        // Remove show-controls class when switching slides
-                        if (galleryContainer) {
-                            galleryContainer.classList.remove('show-controls');
-                        }
-                    }
-                } else {
-                    if (videoControls) {
-                        videoControls.style.display = 'none';
-                    }
+                    video.pause();
+                    if (video.readyState) video.currentTime = 0;
                 }
             });
-            
-            if (captionEl && captions[index]) {
-                captionEl.textContent = captions[index];
+            currentVideo = slides[index].querySelector('video');
+            gallery.classList.toggle('has-video', Boolean(currentVideo));
+            if (videoControls) videoControls.style.display = currentVideo ? 'flex' : 'none';
+            if (captionEl && captions[index]) captionEl.textContent = captions[index];
+            if (currentVideo) {
+                updateVideoControls(currentVideo);
+                showControlsTemporarily(gallery.querySelector('.gallery-container'));
+                if (gallery.closest('.project-item').classList.contains('open')) {
+                    currentVideo.play().catch(() => {});
+                }
             }
         }
 
-        
-        
         function nextSlide() {
             currentIndex = (currentIndex + 1) % slides.length;
             showSlide(currentIndex);
@@ -244,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.stopPropagation();
                 if (currentVideo) {
                     if (currentVideo.paused) {
-                        currentVideo.play();
+                        currentVideo.play().catch(() => {});
                     } else {
                         currentVideo.pause();
                     }
@@ -256,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (progressBar) {
             progressBar.addEventListener('click', (e) => {
                 e.stopPropagation();
-                if (currentVideo) {
+                if (currentVideo && Number.isFinite(currentVideo.duration)) {
                     const rect = progressBar.getBoundingClientRect();
                     const pos = (e.clientX - rect.left) / rect.width;
                     currentVideo.currentTime = pos * currentVideo.duration;
@@ -393,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const clickHandler = (e) => {
                     e.stopPropagation();
                     e.preventDefault();
-                    console.log('Video clicked, showing controls');
+                    // console.log('Video clicked, showing controls');
                     showControlsTemporarily(galleryContainer);
                 };
                 
